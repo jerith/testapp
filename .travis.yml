@@ -13,7 +13,7 @@ before_install:
 install: []
 before_script:
 - version="$(awk '$2 == "TESTAPP_VERSION" { print $3; exit }' Dockerfile | cut -d'~' -f1)"
-- docker pull "$IMAGE"
+- docker pull "$IMAGE" || true
 script:
 - docker build --pull --cache-from "$IMAGE" -t "$IMAGE" .
 before_deploy:
