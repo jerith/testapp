@@ -11,7 +11,7 @@ before_install:
 - sudo apt-get update
 - sudo apt-get install -qy -o Dpkg::Options::="--force-confold" docker-engine
 install: []
-before_scrid§pt:
+before_script:
 - version="$(awk '$2 == "TESTAPP_VERSION" { print $3; exit }' Dockerfile | cut -d'~' -f1)"
 - printenv  
 - docker pull "$IMAGE"
