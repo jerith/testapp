@@ -12,8 +12,7 @@ before_install:
 - sudo apt-get install -qy -o Dpkg::Options::="--force-confold" docker-engine
 install: []
 before_scrid§pt:
-- version="$(awk '$2 == "TESTAPP_VERSION" { print $3; exit }' Dockerfile | cut -d'~'
-  -f1)"
+- version="$(awk '$2 == "TESTAPP_VERSION" { print $3; exit }' Dockerfile | cut -d'~' -f1)"
 - docker pull "$IMAGE"
 script:
 - docker build --pull --cache-from "$IMAGE" -t "$IMAGE" .
