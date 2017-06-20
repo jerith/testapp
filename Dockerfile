@@ -1,7 +1,7 @@
 FROM python:3
 LABEL maintainer "Bearnard Hibbins <bearnard@gmail.com>"
 
-ENV TESTAPP_VERSION 0.0.4
+ENV TESTAPP_VERSION 0.0.5
 
 COPY server.py /
 COPY requirements.txt /

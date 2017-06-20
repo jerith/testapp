@@ -2,7 +2,7 @@ from aiohttp import web
 
 
 async def handle(request):
-    text = "Hello, spinnaker helped me get here by trigger..."
+    text = "Hello, spinnaker helped me get here by trigger... version: 0.0.5"
     print('received request, replying with "{}".'.format(text))
     return web.Response(text=text)
 
