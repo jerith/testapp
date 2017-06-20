@@ -8,7 +8,7 @@ resources:
 - name: testapp-image
   type: docker-image
   source:
-    repository: jerith/testapp
+    repository: jerithorg/testapp
     username: jerithbot
     password: {{jerithbot-dockerhub-key}}
 
