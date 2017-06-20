@@ -1,0 +1,16 @@
+platfom: linux
+
+image_resource:
+  type: docker-image
+  source:
+    repository: python
+    tag: 3
+
+inputs:
+  - name: testapp
+
+outputs:
+  - name: image-params
+
+run:
+  path: ./testapp/.ci/build.sh

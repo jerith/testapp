@@ -1,0 +1,24 @@
+resources:
+- name: testapp
+  type: git
+  source:
+    uri: https://github.com/jerith/testapp
+    branch: master
+
+- name: testapp-image
+  type: docker-image
+  source:
+    repository: jerith/testapp
+    username: jerithbot
+    password: ((jerithbot-dockerhub-key))
+
+jobs:
+- name: build-rootfs
+  plan:
+  - get: testapp
+  - task: build
+    file: testapp/.ci/build.yml
+  - put: testapp-image
+    params:
+      build: testapp
+      tag: image-params/tag
