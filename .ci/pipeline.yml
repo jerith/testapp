@@ -10,10 +10,10 @@ resources:
   source:
     repository: jerith/testapp
     username: jerithbot
-    password: ((jerithbot-dockerhub-key))
+    password: {{jerithbot-dockerhub-key}}
 
 jobs:
-- name: build-rootfs
+- name: build-image
   plan:
   - get: testapp
   - task: build
