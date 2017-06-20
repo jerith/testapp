@@ -1,0 +1,16 @@
+platform: linux
+
+image_resource:
+  type: docker-image
+  source:
+    repository: python
+    tag: '3'
+
+inputs:
+  - name: testapp
+
+outputs:
+  - name: deploy-params
+
+run:
+  path: ./testapp/.ci/deploy.sh

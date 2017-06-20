@@ -1,3 +1,9 @@
+resource_types:
+- name: marathon
+  type: docker-image
+  source:
+    repository: ckaznocha/marathon-resource
+
 resources:
 - name: testapp
   type: git
@@ -12,6 +18,12 @@ resources:
     username: jerithbot
     password: {{jerithbot-dockerhub-key}}
 
+- name: testapp-marathon
+  type: marathon
+  source:
+    app_id: testapp
+    uri: http://localhost:8090/
+
 jobs:
 - name: build-image
   plan:
@@ -22,3 +34,7 @@ jobs:
     params:
       build: testapp
       tag: image-params/tag
+  - put: testapp-marathon
+    params:
+      app_json: deploy-params/testapp.json
+      time_out: 30
