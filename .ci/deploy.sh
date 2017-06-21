@@ -4,7 +4,7 @@ tag=$(cat image-params/tag)
 
 cat > deploy-params/testapp.json <<EOF
 {
-  "id": "testapp",
+  "id": "jerith-testapp",
   "instances": 1,
   "cpus": 0.5,
   "mem": 128,
@@ -41,7 +41,7 @@ cat > deploy-params/testapp.json <<EOF
   "requirePorts": true,
   "labels": {
     "HAPROXY_GROUP": "external",
-    "HAPROXY_0_VHOST": "testapp.qa-seed-hub.za.p16n.org"
+    "HAPROXY_0_VHOST": "jerith-testapp.qa-seed-hub.za.p16n.org"
   }
 }
 EOF

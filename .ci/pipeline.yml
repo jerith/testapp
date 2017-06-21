@@ -22,7 +22,7 @@ resources:
   type: marathon
   source:
     app_id: testapp
-    uri: http://localhost:8090/
+    uri: http://10.215.33.193:8090/
 
 jobs:
 - name: build-image
