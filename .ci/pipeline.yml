@@ -39,5 +39,5 @@ jobs:
   - put: testapp-marathon
     params:
       app_json: deploy-params/testapp.json
-      time_out: 30
+      time_out: 60
       restart_if_no_update: true
