@@ -40,3 +40,4 @@ jobs:
     params:
       app_json: deploy-params/testapp.json
       time_out: 30
+      restart_if_no_update: true

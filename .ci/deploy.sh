@@ -1,6 +1,6 @@
 #!/bin/bash
 
-version=$(awk '$2 == "TESTAPP_VERSION" { print $3; exit }' testapp/Dockerfile | cut -d'~' -f1)
+tag=$(cat image-params/tag)
 
 cat > deploy-params/testapp.json <<EOF
 {
@@ -16,7 +16,7 @@ cat > deploy-params/testapp.json <<EOF
   "container": {
     "type": "DOCKER",
     "docker": {
-      "image": "index.docker.io/jerithorg/testapp:${version}",
+      "image": "index.docker.io/jerithorg/testapp:${tag}",
       "network": "BRIDGE",
       "portMappings": [
         {
@@ -45,7 +45,3 @@ cat > deploy-params/testapp.json <<EOF
   }
 }
 EOF
-
-version=$(awk '$2 == "TESTAPP_VERSION" { print $3; exit }' testapp/Dockerfile | cut -d'~' -f1)
-
-echo "$version" > image-params/tag

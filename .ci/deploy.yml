@@ -7,7 +7,7 @@ image_resource:
     tag: 3-slim
 
 inputs:
-  - name: testapp
+  - name: image-params
 
 outputs:
   - name: deploy-params
