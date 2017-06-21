@@ -38,6 +38,18 @@ cat > deploy-params/testapp.json <<EOF
     "inactiveAfterSeconds": 300,
     "expungeAfterSeconds": 600
   },
+  "healthChecks": [
+    {
+      "gracePeriodSeconds": 10,
+      "intervalSeconds": 5,
+      "timeoutSeconds": 2,
+      "maxConsecutiveFailures": 2,
+      "portIndex": 0,
+      "path": "/",
+      "protocol": "HTTP",
+      "ignoreHttp1xx": false
+    }
+  ],
   "requirePorts": true,
   "labels": {
     "HAPROXY_GROUP": "external",
