@@ -34,6 +34,8 @@ jobs:
     params:
       build: testapp
       tag: image-params/tag
+  - task: deploy
+    file: testapp/.ci/deploy.yml
   - put: testapp-marathon
     params:
       app_json: deploy-params/testapp.json
