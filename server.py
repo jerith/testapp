@@ -1,8 +1,10 @@
+import os
 from aiohttp import web
 
 
 async def handle(request):
-    text = "Hello, spinnaker helped me get here by trigger... version: 0.0.8"
+    text = "Hello, concourse built and deployed me... version: {}".format(
+        os.environ["TESTAPP_VERSION"])
     print('received request, replying with "{}".'.format(text))
     return web.Response(text=text)
 
