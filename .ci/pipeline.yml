@@ -21,7 +21,7 @@ resources:
 - name: testapp-marathon
   type: marathon
   source:
-    app_id: testapp
+    app_id: jerith-testapp
     uri: http://10.215.33.193:8090/
 
 jobs:
