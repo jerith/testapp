@@ -10,6 +10,7 @@ resources:
   source:
     uri: https://github.com/jerith/testapp
     branch: master
+  webhook_token: prod-my-resource
 
 - name: testapp-image
   type: docker-image
@@ -28,6 +29,7 @@ jobs:
 - name: build-image
   plan:
   - get: testapp
+    trigger: true
   - task: build
     file: testapp/.ci/build.yml
   - put: testapp-image
