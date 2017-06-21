@@ -6,6 +6,7 @@ image_resource:
     repository: busybox
 
 inputs:
+  - name: testapp
   - name: image-params
 
 outputs:
