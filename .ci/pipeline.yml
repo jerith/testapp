@@ -11,6 +11,7 @@ resources:
     uri: https://github.com/jerith/testapp
     branch: master
   webhook_token: prod-my-resource
+  check_every: 30m
 
 - name: testapp-image
   type: docker-image
@@ -18,12 +19,14 @@ resources:
     repository: jerithorg/testapp
     username: jerithbot
     password: {{jerithbot-dockerhub-key}}
+  check_every: 30m
 
 - name: testapp-marathon
   type: marathon
   source:
     app_id: jerith-testapp
     uri: http://10.215.33.193:8090/
+  check_every: 30m
 
 jobs:
 - name: build-image
